@@ -30,7 +30,7 @@ brand_options = [
 fuel_options = ["Petrol", "Diesel"]
 seller_options = ["Dealer", "Individual"]
 transmission_options = ["Manual", "Automatic"]
-
+vehicle_type_options = ["Car", "Two-Wheeler"]
 # --- User inputs ---
 col1, col2 = st.columns(2)
 
@@ -48,6 +48,7 @@ with col1:
 
 with col2:
     owner = st.selectbox("Owner (number of previous owners)", [0, 1, 2, 3])
+    vehicle_type = st.selectbox("Vehicle Type", vehicle_type_options)
     fuel_type = st.selectbox("Fuel Type", fuel_options)
     seller_type = st.selectbox("Seller Type", seller_options)
     transmission = st.selectbox("Transmission", transmission_options)
@@ -63,6 +64,7 @@ if st.button("Predict Selling Price"):
         "Car_Age": car_age,
         "Owner": owner,
         "Brand": brand,
+        "Vehicle_Type": vehicle_type,  
         "Fuel_Type": fuel_type,
         "Seller_Type": seller_type,
         "Transmission": transmission
